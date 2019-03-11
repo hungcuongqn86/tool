@@ -1,30 +1,56 @@
 {
-   "content_scripts": [ {
-      "css": [ "/css/all.min.css" ],
-      "js": [ "/dist/all.min.js" ],
-      "matches": [ "https://*.timhangquangchau.com/*", "http://*.timhangquangchau.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "https://*.tmall.hk/*", "http://detail.1688.com/*", "https://detail.1688.com/*", "http://wwww.amazon.com/*", "https://wwww.amazon.com/*" ]
-   } ],
-   "description": "tim hang quang chau, cong cu dat hang taobao, tmall, 1688, mua hang trung quoc, timhangquangchau, đặt hàng nhanh chóng",
-   "homepage_url": "http://timhangquangchau.com",
-   "icons": {
-      "128": "images/128x128.png",
-      "16": "images/16x16.png",
-      "32": "images/32x32.png",
-      "64": "images/64x64.png"
-   },
-   "input_components": {
-      "rate": 3470
-   },
-   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlSrS6HC/NXauZ+wao+KhlRczUiJMmTu4WyOKSHMROILRDivALj3I0AUruPF+XGdp4lnFiwDuOnK4o5E8OtHXEvJ/Xchqb8zmgFxqcvQnVkQY5AUgnePBk+rV/Sjs0IxmotbP+BGscrxtvQ01PlZak7wdUEBTvNuGdgO4dIKI0RcH7ROhnWtd6Tsh6Yr6TCftr3oFQqmF9wKUFLxHoPo0vnD1Bgef09QiuJQ3d2gfPpI28Me9TjUUim9AiSbl8P0NoC92hEfyOWLWcvP5idbegA/IR6sTpH3nQxP/8kbKrZ3g24ZvhuyG3uZJ6f9qJcUIJf2eFvQ4UYgrSWkR3uE0wwIDAQAB",
-   "manifest_version": 2,
-   "name": "Tìm hàng Quảng Châu",
-   "page_action": {
-      "default_icon": "images/128x128.png",
-      "default_popup": "popup.html"
-   },
-   "permissions": [ "activeTab", "storage", "https://timhangquangchau.com/", "http://timhangquangchau.com/", "https://2.taobao.com/item.htm" ],
-   "short_name": "timhangquangchau.com",
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.0.17",
-   "web_accessible_resources": [ "images/*" ]
+  "content_scripts": [
+    {
+      "css": [
+        "/css/all.min.css"
+      ],
+      "js": [
+        "/dist/all.min.js"
+      ],
+      "matches": [
+        "https://*.timhangquangchau.com/*",
+        "http://*.timhangquangchau.com/*",
+        "http://*.taobao.com/*",
+        "https://*.taobao.com/*",
+        "http://*.tmall.com/*",
+        "https://*.tmall.com/*",
+        "https://*.tmall.hk/*",
+        "http://detail.1688.com/*",
+        "https://detail.1688.com/*",
+        "http://wwww.amazon.com/*",
+        "https://wwww.amazon.com/*"
+      ]
+    }
+  ],
+  "description": "tim hang quang chau, cong cu dat hang taobao, tmall, 1688, mua hang trung quoc, timhangquangchau, đặt hàng nhanh chóng",
+  "homepage_url": "http://localhost",
+  "icons": {
+    "128": "images/128x128.png",
+    "16": "images/16x16.png",
+    "32": "images/32x32.png",
+    "64": "images/64x64.png"
+  },
+  "input_components": {
+    "rate": 3470
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlSrS6HC/NXauZ+wao+KhlRczUiJMmTu4WyOKSHMROILRDivALj3I0AUruPF+XGdp4lnFiwDuOnK4o5E8OtHXEvJ/Xchqb8zmgFxqcvQnVkQY5AUgnePBk+rV/Sjs0IxmotbP+BGscrxtvQ01PlZak7wdUEBTvNuGdgO4dIKI0RcH7ROhnWtd6Tsh6Yr6TCftr3oFQqmF9wKUFLxHoPo0vnD1Bgef09QiuJQ3d2gfPpI28Me9TjUUim9AiSbl8P0NoC92hEfyOWLWcvP5idbegA/IR6sTpH3nQxP/8kbKrZ3g24ZvhuyG3uZJ6f9qJcUIJf2eFvQ4UYgrSWkR3uE0wwIDAQAB",
+  "manifest_version": 2,
+  "name": "Tìm hàng Quảng Châu",
+  "page_action": {
+    "default_icon": "images/128x128.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "https://timhangquangchau.com/",
+    "http://timhangquangchau.com/",
+    "https://2.taobao.com/item.htm"
+  ],
+  "short_name": "timhangquangchau.com",
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "version": "1.0.17",
+  "web_accessible_resources": [
+    "images/*"
+  ]
 }
