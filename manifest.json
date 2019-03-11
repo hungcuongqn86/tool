@@ -5,7 +5,10 @@
         "/css/all.min.css"
       ],
       "js": [
-        "/dist/all.min.js"
+        "/dist/all.js"
+        // "/dist/all.min.js"
+        // "/dist/lib.js",
+        // "/dist/main.js"
       ],
       "matches": [
         "https://*.timhangquangchau.com/*",
