@@ -12453,7 +12453,7 @@ var VERSION = manifestData.version;
 var HTTP = 'https';
 var GDTQ = getHttpsLink(manifestData.homepage_url);
 var shortName = manifestData.short_name;
-var apiShopUrl = GDTQ + '/api/shop/info';
+var apiShopUrl = GDTQ + '/api/shop/create';
 var apiAddCart = GDTQ + '/api/add/cart';
 var ALT = 'THQC';
 var TBE_RATE = '.tbe-rate';
@@ -12654,6 +12654,8 @@ $(document).ready(function() {
       ReactDOM.render(React.createElement(BtnAddPro, {btnname: btnName}), document.getElementById('cart-thqc-parent'));
       getShopInfor();
   }
+
+  getShopInfor();
 });
 // $(document).ready(function() {
 //   getInfoPageShop();
@@ -12806,8 +12808,8 @@ function changeLink(link){
 }
 
 function getHttpsLink(link) {
-  link = link.replace('https://', 'http://');
-  link = link.replace('http://', 'https://');
+  // link = link.replace('https://', 'http://');
+  // link = link.replace('http://', 'https://');
   return link;
 }
 
@@ -13522,6 +13524,9 @@ function getShopInfor() {
       shopNick = tmallShopNick();
       shopUrl = tmallShopLink();
   }
+
+  console.log(111111, shopNick, shopUrl);
+
   $.ajax({
     method: "POST",
     url: config.apiShopUrl,
@@ -13632,7 +13637,7 @@ function getInfoPageShop() {
    }
    var tbeInfo = [
       '<div id="tbe-info-shop">',
-         '<img style="width:70px;" src="'+chrome.extension.getURL('images/144x144.png')+'" alt="'+ALT+'" />',
+         '<img style="width:60px; height: 48px;" src="'+chrome.extension.getURL('images/144x144.png')+'" alt="'+ALT+'" />',
          '<ul>',
             '<li>Giá bán: <b class="tbe-color-price">' + productPrice + '</b> đ</li>',
             '<li>Tỷ giá: <span class="tbe-rate tbe-color-price">' + (config.rate).format() + '</span> đ/tệ</li>',
