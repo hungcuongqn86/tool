@@ -12628,24 +12628,9 @@ window.addEventListener("message", function(event) {
 $(document).ready(function() {
   // clearData();
   if(checkForShowTool() && checkExpired() && !checkMyDomain() ) {
-      //clearfix
-      //clearOldData();
       // Remove currency label
       delElmentPrice();
       // Translate
-      $(rules[currentDomain].translate.originPrice).text('Giá');
-      $(rules[currentDomain].translate.promoPrice).text('Giá bán');
-      $(rules[currentDomain].translate.size).text('Kích thước');
-      $(rules[currentDomain].translate.color).text('Màu sắc');
-      $(rules[currentDomain].translate.amount).text('Số lượng');
-      $(rules[currentDomain].translate.unit).text('sản phẩm');
-      //add element
-      /*existsElement.before(notes);
-      $('body').append(cart_container);
-      ReactDOM.render(<TextNote/>, document.getElementById('pro-thqc-note'));
-      ReactDOM.render(<BtnAddPro btnname={btnName} btnnameCart={btnNameCart}/>, document.getElementById('cart-thqc-parent'));
-      ReactDOM.render(<TextWarning message={message}/>, document.getElementById('cart-thqc-warning'));
-      getShopInfor();*/
       existsElement.before(notes);
       existsElement.before(warning);
       existsElement.before(cart_container);
@@ -12654,14 +12639,9 @@ $(document).ready(function() {
       ReactDOM.render(React.createElement(BtnAddPro, {btnname: btnName}), document.getElementById('cart-thqc-parent'));
       getShopInfor();
   }
-
-  getShopInfor();
 });
-// $(document).ready(function() {
-//   getInfoPageShop();
-//   getShopInfor();
-// });
 /*end main*/
+
 /*function*/
 function clearData() {
   var emptyData = {};
@@ -12672,7 +12652,7 @@ function clearData() {
 }
 function checkExpired() {
   var d = new Date();
-  var dateExpired = new Date(2018, 6, 12, 2, 3, 4, 567);
+  var dateExpired = new Date(2019, 6, 12, 2, 3, 4, 567);
   // var date = d.getDate() + d.getMonth() + getFullYear();
   // console.log(d.getTime(), dateExpired.getTime());
   if(d.getTime() <= dateExpired.getTime()){
@@ -13329,7 +13309,7 @@ function addToShopCart(){
 }
 
 function adToCartTaobao(){
-    var shopNick = '';
+   var shopNick = '';
    var shopUrl = '';
    var pro_name = '';
    if(currentDomain === 'taobao'){
@@ -13524,8 +13504,6 @@ function getShopInfor() {
       shopNick = tmallShopNick();
       shopUrl = tmallShopLink();
   }
-
-  console.log(111111, shopNick, shopUrl);
 
   $.ajax({
     method: "POST",

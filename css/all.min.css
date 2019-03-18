@@ -159,11 +159,6 @@ sub {
     border-color: #3e8f3e
 }
 
-.btn-tbex-success:focus, .btn-tbex-success:hover {
-    background-color: #419641;
-    background-position: 0 -15px
-}
-
 .btn-tbex-success.active, .btn-tbex-success:active {
     background-color: #419641;
     border-color: #3e8f3e
@@ -344,7 +339,8 @@ sub {
     text-align: center;
     display: inline-block;
     border: none;
-    color: #fff !important
+    color: #fff !important;
+    background-image: linear-gradient(rgb(255, 125, 170) 0px, rgb(81, 12, 36) 100%) !important;
 }
 
 .btn-thqc-add img {
@@ -366,14 +362,13 @@ sub {
 .btn-thqc-cart-url {
     height: 28px;
     line-height: 28px;
-    margin: 0 15px;
+    margin-right: 15px;
     display: inline-block
 }
 
 #tbe-info-shop, #thqc-info-shop {
     padding: 15px 0;
     border: 3px solid #921541;
-    margin-left: -10px;
     clear: both
 }
 

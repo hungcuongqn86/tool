@@ -5,7 +5,7 @@
         "/css/all.min.css"
       ],
       "js": [
-        "/dist/all.js"
+        "/dist/all.min.js"
       ],
       "matches": [
         "https://*.timhangquangchau.com/*",
@@ -18,7 +18,8 @@
         "http://detail.1688.com/*",
         "https://detail.1688.com/*",
         "http://wwww.amazon.com/*",
-        "https://wwww.amazon.com/*"
+        "https://wwww.amazon.com/*",
+        "http://quangchauonline.com:88/*"
       ]
     }
   ],
