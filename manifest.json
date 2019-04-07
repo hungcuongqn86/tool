@@ -24,7 +24,7 @@
     }
   ],
   "description": "tim hang quang chau, cong cu dat hang taobao, tmall, 1688, mua hang trung quoc, timhangquangchau, đặt hàng nhanh chóng",
-  "homepage_url": "http://api.quangchau247online.com",
+  "homepage_url": "http://api.quangchau247online.com/public",
   "icons": {
     "128": "images/128x128.png",
     "16": "images/16x16.png",
@@ -45,8 +45,10 @@
     "activeTab",
     "storage",
     "http://api.quangchau247online.com/",
-    "http://quangchauonline.com/",
-    "https://2.taobao.com/item.htm"
+    "http://quangchau247online.com/",
+    "http://api.quangchau247online.com/public/admin/login",
+    "https://2.taobao.com/item.htm",
+    "https://item.taobao.com/"
   ],
   "short_name": "qc247",
   "update_url": "https://clients2.google.com/service/update2/crx",
