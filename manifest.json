@@ -8,8 +8,8 @@
         "/dist/all.min.js"
       ],
       "matches": [
-        "https://*.quangchauonline.com:88/*",
-        "http://*.quangchauonline.com:88/*",
+        "https://*.quangchau247online.com/*",
+        "http://*.quangchau247online.com/*",
         "http://*.taobao.com/*",
         "https://*.taobao.com/*",
         "http://*.tmall.com/*",
@@ -19,7 +19,7 @@
         "https://detail.1688.com/*",
         "http://wwww.amazon.com/*",
         "https://wwww.amazon.com/*",
-        "http://quangchauonline.com:88/*"
+        "http://api.quangchau247online.com/*"
       ]
     }
   ],
@@ -34,7 +34,7 @@
   "input_components": {
     "rate": 3470
   },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlSrS6HC/NXauZ+wao+KhlRczUiJMmTu4WyOKSHMROILRDivALj3I0AUruPF+XGdp4lnFiwDuOnK4o5E8OtHXEvJ/Xchqb8zmgFxqcvQnVkQY5AUgnePBk+rV/Sjs0IxmotbP+BGscrxtvQ01PlZak7wdUEBTvNuGdgO4dIKI0RcH7ROhnWtd6Tsh6Yr6TCftr3oFQqmF9wKUFLxHoPo0vnD1Bgef09QiuJQ3d2gfPpI28Me9TjUUim9AiSbl8P0NoC92hEfyOWLWcvP5idbegA/IR6sTpH3nQxP/8kbKrZ3g24ZvhuyG3uZJ6f9qJcUIJf2eFvQ4UYgrSWkR3uE0wwIDAQAB",
+  "key": "MIGfMA3GCSqGSIb3DFEBAQUAA4GNADCBiQKBgQDcBHwzDvyBQ6bDppkIs9MP4ksKqCMyXQ/A52JivHZKh4YO/9vJsT3oaZhSpDCE9RCocOEQvwsHsFReW2nUEc6OLLyoCFFxIb7KkLGsmfakkut/fFdNJYh0xOTbSN8YvLWcqph09XAY2Y/f0AL7vfO1cuCqtkMt8hFrBGWxDdf9CQIDAQAB",
   "manifest_version": 2,
   "name": "Quảng Châu Online 24/7",
   "page_action": {
@@ -44,13 +44,13 @@
   "permissions": [
     "activeTab",
     "storage",
-    "http://quangchauonline.com:88/",
-    "http://quangchauonline.com:88/",
+    "http://api.quangchau247online.com/",
+    "http://quangchauonline.com/",
     "https://2.taobao.com/item.htm"
   ],
-  "short_name": "quangchauonline.com",
+  "short_name": "qc247",
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "1.0.17",
+  "version": "0.0.1",
   "web_accessible_resources": [
     "images/*"
   ]
