@@ -24,7 +24,7 @@
     }
   ],
   "description": "tim hang quang chau, cong cu dat hang taobao, tmall, 1688, mua hang trung quoc, timhangquangchau, đặt hàng nhanh chóng",
-  "homepage_url": "http://api.quangchau247online.com/public",
+  "homepage_url": "https://api.quangchau247online.com/public",
   "icons": {
     "128": "images/128x128.png",
     "16": "images/16x16.png",
@@ -34,7 +34,6 @@
   "input_components": {
     "rate": 3470
   },
-  "key": "MIGfMA3GCSqGSIb3DFEBAQUAA4GNADCBiQKBgQDcBHwzDvyBQ6bDppkIs9MP4ksKqCMyXQ/A52JivHZKh4YO/9vJsT3oaZhSpDCE9RCocOEQvwsHsFReW2nUEc6OLLyoCFFxIb7KkLGsmfakkut/fFdNJYh0xOTbSN8YvLWcqph09XAY2Y/f0AL7vfO1cuCqtkMt8hFrBGWxDdf9CQIDAQAB",
   "manifest_version": 2,
   "name": "Quảng Châu Online 24/7",
   "page_action": {
@@ -44,15 +43,14 @@
   "permissions": [
     "activeTab",
     "storage",
-    "http://api.quangchau247online.com/",
-    "http://quangchau247online.com/",
-    "http://api.quangchau247online.com/public/admin/login",
+    "https://api.quangchau247online.com/",
+    "https://quangchau247online.com/",
     "https://2.taobao.com/item.htm",
     "https://item.taobao.com/"
   ],
   "short_name": "qc247",
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "web_accessible_resources": [
     "images/*"
   ]
