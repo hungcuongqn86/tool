@@ -340,7 +340,7 @@ sub {
     display: inline-block;
     border: none;
     color: #fff !important;
-    background-image: linear-gradient(rgb(255, 125, 170) 0px, rgb(81, 12, 36) 100%) !important;
+    background-image: linear-gradient(rgb(51, 232, 71) 0px, rgb(26, 121, 36) 100%) !important;
 }
 
 .btn-thqc-add img {
@@ -368,7 +368,7 @@ sub {
 
 #tbe-info-shop, #thqc-info-shop {
     padding: 15px 0;
-    border: 3px solid #921541;
+    border: 3px solid #26ab34;
     clear: both
 }
 
