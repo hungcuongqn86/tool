@@ -12408,8 +12408,8 @@ var rules = {
             'originPrice': '#J_DetailMeta > div.tm-clear > div.tb-property > div > div.tm-fcs-panel > dl.tm-tagPrice-panel > dd > span, #J_StrPriceModBox > dd > span',
             'promoPrice': '#J_PromoPrice > dd > div > span, #J_PromoBox > div > span',
             'image': '#J_ThumbView, #J_ImgBooth',
-            'shop_nick': '.shopLink',
-            'shop_link': '.shopLink',
+            'shop_nick': '.slogo-shopname',
+            'shop_link': '.slogo-shopname',
             'amount': '#J_Amount input',
             'size': 'dt:contains("Kích thước"), dt:contains("kích thước"), dt:contains("Size"), dt:contains("size")',
             'color': 'dt:contains("Màu sắc"), dt:contains("màu sắc"), dt:contains("màu số"), dt:contains("Color"), dt:contains("color")',
@@ -12928,7 +12928,7 @@ function taobaoShopLink(){
 function tmallShopNick(){
    var nick = '';
    // if(!nick.length){
-      var shop_nick = $('.shopLink');
+      var shop_nick = $('.slogo-shopname');
       if(typeof shop_nick !== 'undefined'){
          nick = $(shop_nick).text();
       }
@@ -12945,7 +12945,7 @@ function tmallShopNick(){
 }
 function tmallShopLink(){
    var link = '';
-   var shop_link = $('.shopLink');
+   var shop_link = $('.slogo-shopname');
    if(typeof shop_link === 'undefined' || !shop_link.length){
       shop_link = $('.hd-shop-name a, .slogo-shopname');
    }
