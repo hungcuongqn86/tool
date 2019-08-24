@@ -43,6 +43,7 @@
   "permissions": [
     "activeTab",
     "storage",
+    "tabs",
     "https://api.quangchau247online.com/",
     "https://quangchau247online.com/",
     "https://2.taobao.com/item.htm",
