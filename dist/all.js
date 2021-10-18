@@ -12666,7 +12666,7 @@ function clearOldData(){
     var emptyData = {};
     emptyData[STORAGE] = [];
         setData(emptyData, function() {
-        //console.info('All old data was cleared!');
+        console.info('All old data was cleared!');
     });
 }
 
@@ -13267,7 +13267,7 @@ function checkFor1688Com(){
    countselected = $(".list-leading .unit-detail-spec-operator").length;
    if(countselected > 0 ){
       countselected = 0;
-      countselected = $(".list-leading .selected").length;
+      countselected = $(".list-leading .active").length;
       if(countselected == 0) {
          warningMeasage('Thông báo', 'Bạn chưa chọn thuộc tính cho sản phẩm.', 'warning');
          scrollToAlert();
