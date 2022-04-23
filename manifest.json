@@ -8,7 +8,7 @@
         "/dist/all.min.js"
       ],
       "matches": [
-        "https://*.quangchau247online.com/*",
+		"https://*.quangchau247online.com/*",
         "http://*.quangchau247online.com/*",
         "http://*.taobao.com/*",
         "https://*.taobao.com/*",
@@ -42,12 +42,12 @@
     "activeTab",
     "storage",
     "tabs",
-    "https://api.quangchau247online.com/",
+	"https://api.quangchau247online.com/",
     "https://item.taobao.com/"
   ],
   "short_name": "qc247",
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "1.2.2",
+  "version": "1.2.6",
   "web_accessible_resources": [
     "images/*"
   ]
