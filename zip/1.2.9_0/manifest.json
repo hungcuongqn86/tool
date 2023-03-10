@@ -1,0 +1,30 @@
+{
+   "content_scripts": [ {
+      "css": [ "/css/all.min.css" ],
+      "js": [ "/dist/all.min.js" ],
+      "matches": [ "https://*.quangchau247online.com/*", "http://*.quangchau247online.com/*", "http://*.taobao.com/*", "https://*.taobao.com/*", "http://*.tmall.com/*", "https://*.tmall.com/*", "https://*.tmall.hk/*", "http://detail.1688.com/*", "https://detail.1688.com/*", "http://api.quangchau247online.com/*" ]
+   } ],
+   "description": "Hỗ trợ người Việt tìm và đặt các sản phẩm trên các website thương mại điện tử Trung Quốc",
+   "homepage_url": "https://api.quangchau247online.com/public",
+   "icons": {
+      "128": "images/128x128.png",
+      "16": "images/16x16.png",
+      "32": "images/32x32.png",
+      "64": "images/64x64.png"
+   },
+   "input_components": {
+      "rate": 3470
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgPajHO7T7GWFozvYiIfoIrU/sLepc6ZCPjKxVbJK0adWd2PdGzTFXVpNwZ5p1YD1fLpJaRGWS2agECop4+uP73AvHVO/4RXABTMPSYrzwhB+dT3L73klfljQD+gkYowZwb7ETn3PflUuyqRhVuqxtK6Si5b17d6IOZehL+MgZz+75iqxgYV9kRNkfpk2b8GlibhjaomSZ7kd1WUsq/9JeiV7+wGRJXEQNXBbygP2T1RQta/Zo79vBHdOqgxJ6f+9qYs/WZwp8wZNvR1Ah/mBLbSDAx0Z6rN28BbH6wB0RnR4aGVfKqONhr3KDvgdaHRR6KqGunlwUxobiwrPMUHPXQIDAQAB",
+   "manifest_version": 2,
+   "name": "Quảng Châu Online 247",
+   "page_action": {
+      "default_icon": "images/128x128.png",
+      "default_popup": "popup.html"
+   },
+   "permissions": [ "activeTab", "storage", "tabs", "https://api.quangchau247online.com/", "https://item.taobao.com/" ],
+   "short_name": "qc247",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.2.9",
+   "web_accessible_resources": [ "images/*" ]
+}
