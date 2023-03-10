@@ -455,6 +455,34 @@ const niniex = (e, t, n) => {
         var u = $(W[oe].crawle.size).next().find(".tb-selected a").text().trim(),
             h = $(W[oe].crawle.color).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro1).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro2).next().find(".tb-selected a").text().trim(),
             d = $(W[oe].crawle.originPrice).text(), f = $(W[oe].crawle.promoPrice).text();
+
+        if (oe == "tmall") {
+            if (!i) {
+                var tqwe = $('img[class*="PicGallery--mainPic"]');
+                console.log("cuongnh", tqwe);
+                if (tqwe.length > 0) {
+                    tqwe = $(tqwe[0]);
+                    i = tqwe.attr("src");
+                }
+            }
+
+            if (!d) {
+                var tqwe = $('span[class*="Price--priceText"]');
+                if (tqwe.length > 0) {
+                    tqwe = $(tqwe[0]);
+                    d = tqwe.text();
+                }
+            }
+
+            if (!f) {
+                var nadsa = $('span[class*="Price--extraPriceText"]');
+                if (nadsa.length > 0) {
+                    nadsa = $(nadsa[0]);
+                    f = nadsa.text();
+                }
+            }
+        }
+
         d = p(d), f = p(f);
         var m = d;
         f && !isNaN(f) && (m = f);
@@ -730,7 +758,6 @@ const niniex = (e, t, n) => {
             }
 
             if ("number" == typeof t) {
-                console.log("cuongh", n);
                 (e += "tmall" == oe ? '' : '<dl><dd style="width:100%"><span class="text-danger">Shop giới hạn mua tối đa <b class="tbe-color-price">' + t + "</b> sản phẩm</span></dd></dl>"), i = Math.round(n.orgPrice * ie.rate).format(), ((n.orgPrice > 0 && n.proPrice > 0 && n.orgPrice > n.proPrice) || ((0 == n.orgPrice || isNaN(n.orgPrice)) && n.proPrice > 0)) ? i = Math.round(n.proPrice * ie.rate).format() : (n.lowPrice > 0 && n.highPrice > 0 && (i = Math.round(n.lowPrice * ie.rate).format() + " - " + Math.round(n.highPrice * ie.rate).format()), n.lowPromo > 0 && n.highPromo > 0 && (i = Math.round(n.lowPromo * ie.rate).format() + " - " + Math.round(n.highPromo * ie.rate).format()));
             }
         }
