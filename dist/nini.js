@@ -781,10 +781,10 @@ const niniex = (e, t, n) => {
         }
 
         titleElm.append(r);
-        $(".obj-order").hide();
-        $(".order-button-wrapper").hide();
-        $(".tb-action").hide();
-        $("#J_juValid").hide();
+        // $(".obj-order").hide();
+        // $(".order-button-wrapper").hide();
+        // $(".tb-action").hide();
+        // $("#J_juValid").hide();
     }
 
     function H(e) {
