@@ -781,6 +781,7 @@ const niniex = (e, t, n) => {
         }
 
         titleElm.append(r);
+        console.log("cuongnh1212");
         // $(".obj-order").hide();
         // $(".order-button-wrapper").hide();
         // $(".tb-action").hide();
