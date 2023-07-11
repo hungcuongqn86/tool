@@ -280,7 +280,7 @@ const niniex = (e, t, n) => {
 			
             if (!u.length){
                 u = $(".single-sku-box");
-                price_class = ".price-item .price-title .price-num";
+                price_class = ".price-item .price-title .price-num.summary-num";
                 size_class = ".single-sku-content .single-sku-title .single-sku-item span:last-child";
             }
 			
