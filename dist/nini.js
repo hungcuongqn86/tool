@@ -275,6 +275,21 @@ const niniex = (e, t, n) => {
             }
         } else {
             u = $(".sku-item-wrapper");
+            var price_class = ".sku-item-left .discountPrice-price";
+            var size_class = ".sku-item-left .sku-item-name";
+			
+            if (!u.length){
+                u = $(".single-sku-box");
+                price_class = ".price-item .price-title .price-num";
+                size_class = ".single-sku-content .single-sku-title .single-sku-item span:last-child";
+            }
+			
+			if (!u.length){
+                u = $(".next-table-row");
+                price_class = ".next-table-cell .next-table-cell-wrapper .price";
+                size_class = ".next-table-cell .next-table-cell-wrapper .specification-cell span";
+            }
+
             if (u.length) {
                 for (var h = 0; h < u.length; h++) {
                     l = u[h];
@@ -297,8 +312,8 @@ const niniex = (e, t, n) => {
                     n = $(l).find('.next-input-group-auto-width>input').val();
                     n = parseInt(n);
                     if ("undefined" != typeof n && n > 0) {
-                        e = $(l).find(".sku-item-left .discountPrice-price").text().replace(/[^0-9\.]/g, '');
-                        t = $(l).find(".sku-item-left .sku-item-name").text();
+                        e = $(l).find(price_class).text().replace(/[^0-9\.]/g, '');
+                        t = $(l).find(size_class).text();
                         a.qty = n;
                         a.price = parseFloat(e);
                         a.color = s;
