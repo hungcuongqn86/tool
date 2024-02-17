@@ -106,15 +106,15 @@ const niniex = (e, t, n) => {
         }) : n = null) : n = null), n
     }
 
-    function y() {
+    function getTaobaoShopName() {
         var e = "";
         if (!e.length) {
             var t = $(".tb-shop-name a, .shop-name a.shop-name-link");
+            if(t.length === 0){
+                t = $('div[class*="ShopHeader--title--"]');
+            }
+
             "undefined" != typeof t && (e = $(t).attr("title")), "undefined" != typeof e && e.length || (e = $(t).text(), e = b(e))
-        }
-        if (!e.length) {
-            var n = JSON.parse(u("tmp_g_config"));
-            "object" == typeof n && null !== n && "undefined" != typeof n.fav && "undefined" != typeof n.fav.shopTitle && (e = decodeURIComponent(n.fav.shopTitle))
         }
         return e
     }
@@ -123,8 +123,11 @@ const niniex = (e, t, n) => {
         return e = e.replace(/(?:\r\n|\r|\n)/g, " "), e = e.trim()
     }
 
-    function _() {
+    function getTaobaoShopLink() {
         var e = "", t = $(".tb-shop-name a, .shop-name a.shop-name-link");
+        if(t.length === 0){
+            t = $('a[class*="ShopHeader--board--"]');
+        }
         return "undefined" != typeof t && (e = $(t).attr("href")), e = c(e)
     }
 
@@ -372,15 +375,14 @@ const niniex = (e, t, n) => {
 
     function T() {
         var t = $(W[oe].crawle.originPrice), n = $(W[oe].crawle.promoPrice);
-
-        if (t.length == 0) {
+        if (t.length === 0) {
             t = $('span[class*="Price--priceText"]');
             if (t.length > 0) {
                 t = $(t[0]);
             }
         }
 
-        if (n.length == 0) {
+        if (n.length === 0) {
             n = $('span[class*="Price--extraPriceText"]');
         }
 
@@ -461,7 +463,7 @@ const niniex = (e, t, n) => {
 
     function S() {
         var e = "", t = "", n = "";
-        "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = y(), t = _()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = E());
+        "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = E());
         var i = $(W[oe].crawle.image).attr("src"), o = $(W[oe].crawle.size).next().find(".tb-selected").data("pv"),
             r = $(W[oe].crawle.color).next().find(".tb-selected").data("pv"),
             s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("pv"),
@@ -471,10 +473,9 @@ const niniex = (e, t, n) => {
             h = $(W[oe].crawle.color).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro1).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro2).next().find(".tb-selected a").text().trim(),
             d = $(W[oe].crawle.originPrice).text(), f = $(W[oe].crawle.promoPrice).text();
 
-        if (oe == "tmall") {
+        if ((oe === "tmall") || (oe === "taobao")) {
             if (!i) {
                 var tqwe = $('img[class*="PicGallery--mainPic"]');
-                console.log("cuongnh", tqwe);
                 if (tqwe.length > 0) {
                     tqwe = $(tqwe[0]);
                     i = tqwe.attr("src");
@@ -482,10 +483,10 @@ const niniex = (e, t, n) => {
             }
 
             if (!d) {
-                var tqwe = $('span[class*="Price--priceText"]');
-                if (tqwe.length > 0) {
-                    tqwe = $(tqwe[0]);
-                    d = tqwe.text();
+                var tqwe1 = $('span[class*="Price--priceText"]');
+                if (tqwe1.length > 0) {
+                    tqwe1 = $(tqwe1[0]);
+                    d = tqwe1.text();
                 }
             }
 
@@ -615,7 +616,7 @@ const niniex = (e, t, n) => {
             }
             var n = tk.tbex_thqc_token[0];
             var e = "", t = "";
-            "1688" === oe && (e = x(), t = C()), "taobao" === oe && (e = y(), t = _()), "tmall" === oe && (e = getShopName(), t = E()), $.ajax({
+            "1688" === oe && (e = x(), t = C()), "taobao" === oe && (e = getTaobaoShopName(), t = getTaobaoShopLink()), "tmall" === oe && (e = getShopName(), t = E()), $.ajax({
                 method: "POST",
                 url: ie.apiShopUrl,
                 dataType: 'json',
@@ -719,14 +720,14 @@ const niniex = (e, t, n) => {
         if (oe === "tmall") {
             var e = "", t = "", n = k(), i = "";
             i = Math.round(n.orgPrice * ie.rate).format(), ((n.orgPrice > 0 && n.proPrice > 0 && n.orgPrice > n.proPrice) || ((0 == n.orgPrice || isNaN(n.orgPrice)) && n.proPrice > 0)) ? i = Math.round(n.proPrice * ie.rate).format() : (n.lowPrice > 0 && n.highPrice > 0 && (i = Math.round(n.lowPrice * ie.rate).format() + " - " + Math.round(n.highPrice * ie.rate).format()), n.lowPromo > 0 && n.highPromo > 0 && (i = Math.round(n.lowPromo * ie.rate).format() + " - " + Math.round(n.highPromo * ie.rate).format()));
-            console.log(i);
+            // console.log(i);
             $("li#nini_price").find('b')[0].textContent = i;
         }
 
         if (oe === "taobao") {
             var e = "", t = "", n = k(), i = "";
             i = Math.round(n.orgPrice * ie.rate).format(), ((n.orgPrice > 0 && n.proPrice > 0 && n.orgPrice > n.proPrice) || ((0 == n.orgPrice || isNaN(n.orgPrice)) && n.proPrice > 0)) ? i = Math.round(n.proPrice * ie.rate).format() : (n.lowPrice > 0 && n.highPrice > 0 && (i = Math.round(n.lowPrice * ie.rate).format() + " - " + Math.round(n.highPrice * ie.rate).format()), n.lowPromo > 0 && n.highPromo > 0 && (i = Math.round(n.lowPromo * ie.rate).format() + " - " + Math.round(n.highPromo * ie.rate).format()));
-            console.log(i);
+            // console.log(i);
             $("li#nini_price").find('b')[0].textContent = i;
         }
     }
@@ -796,7 +797,7 @@ const niniex = (e, t, n) => {
         }
 
         titleElm.append(r);
-        console.log("cuongnh1212");
+        // console.log("cuongnh1212");
         // $(".obj-order").hide();
         // $(".order-button-wrapper").hide();
         // $(".tb-action").hide();
@@ -829,10 +830,10 @@ const niniex = (e, t, n) => {
                 crawle: {
                     originPrice: "#J_priceStd .tb-rmb-num, #J_StrPrice .tb-rmb-num",
                     promoPrice: "#J_PromoPrice .tb-rmb-num, #J_PromoPriceNum",
-                    image: "#J_ThumbView, #J_ImgBooth",
+                    image: "#J_ThumbView, #J_ImgBooth, div.current img.skuIcon",
                     shop_nick: ".tb-shop-name a",
                     shop_link: ".tb-shop-name a",
-                    amount: "#J_IptAmount",
+                    amount: "#J_IptAmount, input.countValueForPC",
                     size: 'dt:contains("Kích thước"), dt:contains("Kích thước"), dt:contains("kích thước"), dt:contains("Size"), dt:contains("size")',
                     color: 'dt:contains("Màu sắc"), dt:contains("màu sắc"), dt:contains("màu số"), dt:contains("Color"), dt:contains("color")',
                     more_pro1: 'dt:contains("清晰度")',
