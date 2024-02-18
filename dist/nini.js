@@ -463,14 +463,21 @@ const niniex = (e, t, n) => {
 
     function S() {
         var e = "", t = "", n = "";
-        "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = E());
-        var i = $(W[oe].crawle.image).attr("src"), o = $(W[oe].crawle.size).next().find(".tb-selected").data("pv"),
-            r = $(W[oe].crawle.color).next().find(".tb-selected").data("pv"),
+        "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"),
+        "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = E());
+
+        /*var sizeobj = $('div.skuWrapper div.skuCate span:contains("颜色")').next().find(".current span.skuValueName").text();
+        console.log("cuonnh00000", sizeobj);*/
+
+        var i = $(W[oe].crawle.image).attr("src"),
+            o = $(W[oe].crawle.size).next().find(".current span.skuValueName").text(),
+            r = $(W[oe].crawle.color).next().find(".current span.skuValueName").text(),
             s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("pv"),
             a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("pv");
         "undefined" == typeof o && (o = $(W[oe].crawle.size).next().find(".tb-selected").data("value")), "undefined" == typeof o && (o = ""), "undefined" == typeof r && (r = $(W[oe].crawle.color).next().find(".tb-selected").data("value")), "undefined" == typeof r && (r = ""), "undefined" == typeof s && (s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("value")), "undefined" == typeof s ? s = "" : (r += s, console.log("color1", r)), "undefined" == typeof a && (a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("value")), "undefined" == typeof a ? a = "" : (r += a, console.log("color2", r));
-        var u = $(W[oe].crawle.size).next().find(".tb-selected a").text().trim(),
-            h = $(W[oe].crawle.color).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro1).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro2).next().find(".tb-selected a").text().trim(),
+
+        var u = o,
+            h = r + $(W[oe].crawle.more_pro1).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro2).next().find(".tb-selected a").text().trim(),
             d = $(W[oe].crawle.originPrice).text(), f = $(W[oe].crawle.promoPrice).text();
 
         if ((oe === "tmall") || (oe === "taobao")) {
@@ -527,6 +534,9 @@ const niniex = (e, t, n) => {
             count: !1,
             method: "Chrome Extension"
         };
+
+        console.log("cuonnh11111", b);
+
         I("add", b)
     }
 
@@ -573,6 +583,7 @@ const niniex = (e, t, n) => {
                     count: !1,
                     method: "Chrome Extension"
                 };
+
                 e.push(u)
             })
         }), I("add", e)
@@ -834,8 +845,8 @@ const niniex = (e, t, n) => {
                     shop_nick: ".tb-shop-name a",
                     shop_link: ".tb-shop-name a",
                     amount: "#J_IptAmount, input.countValueForPC",
-                    size: 'dt:contains("Kích thước"), dt:contains("Kích thước"), dt:contains("kích thước"), dt:contains("Size"), dt:contains("size")',
-                    color: 'dt:contains("Màu sắc"), dt:contains("màu sắc"), dt:contains("màu số"), dt:contains("Color"), dt:contains("color")',
+                    size: 'div.skuWrapper div.skuCate span:contains("尺码")',
+                    color: 'div.skuWrapper div.skuCate span:contains("颜色")',
                     more_pro1: 'dt:contains("清晰度")',
                     more_pro2: 'dt:contains("焦距")',
                     lowPrice: 'span[itemprop="lowPrice"]',
@@ -858,8 +869,8 @@ const niniex = (e, t, n) => {
                     shop_nick: ".shopLink",
                     shop_link: ".shopLink",
                     amount: "#J_Amount input, input.countValueForPC",
-                    size: 'dt:contains("Kích thước"), dt:contains("kích thước"), dt:contains("Size"), dt:contains("size")',
-                    color: 'dt:contains("Màu sắc"), dt:contains("màu sắc"), dt:contains("màu số"), dt:contains("Color"), dt:contains("color")',
+                    size: 'div.skuWrapper div.skuCate span:contains("尺码")',
+                    color: 'div.skuWrapper div.skuCate span:contains("颜色")',
                     more_pro1: 'dt:contains("清晰度")',
                     more_pro2: 'dt:contains("焦距")',
                     lowPrice: "#J_PromoPrice .tm-price",
