@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5e5a056-b157-4437-9a42-0269a34607a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/nini.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/nini.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +16,24 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dist/nini.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="536">
+              <caret line="299" column="13" lean-forward="true" selection-start-line="299" selection-start-column="13" selection-end-line="299" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
+                <element signature="e#13#17#0" expanded="true" />
+                <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -50,7 +67,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -67,6 +83,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -120,16 +137,18 @@
       <workItem from="1708243523462" duration="5015000" />
       <workItem from="1709319630440" duration="29000" />
       <workItem from="1712287662829" duration="31000" />
+      <workItem from="1713859570155" duration="1758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8964000" />
+    <option name="totallyTimeSpent" value="10722000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -162,13 +181,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/dist/all.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306" />
+        <state relative-caret-position="-2108">
+          <caret line="56" column="29" lean-forward="true" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/nini.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="520" column="26" selection-start-line="520" selection-start-column="26" selection-end-line="520" selection-end-column="26" />
+        <state relative-caret-position="536">
+          <caret line="299" column="13" lean-forward="true" selection-start-line="299" selection-start-column="13" selection-end-line="299" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
+            <element signature="e#13#17#0" expanded="true" />
+            <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -280,7 +280,13 @@ const niniex = (e, t, n) => {
             u = $(".sku-item-wrapper");
             var price_class = ".sku-item-left .discountPrice-price";
             var size_class = ".sku-item-left .sku-item-name";
-			
+
+            if (!u.length){
+                u = $(".sku-list-item");
+                price_class = ".sku-list-item-left .sku-item-price-box .sku-item-price";
+                size_class = ".sku-list-item-left .sku-item-name .sku-item-name-text";
+            }
+
             if (!u.length){
                 u = $(".single-sku-box");
                 price_class = ".price-item .price-title .price-num.summary-num";
@@ -547,7 +553,6 @@ const niniex = (e, t, n) => {
 
         var o = 1, r = $(".unit-detail-freight-cost").attr("data-unit-config");
         "undefined" != typeof r && (r = JSON.parse(r)), "object" == typeof r && (o = parseInt(r.beginAmount)), z = N(), 0 == z[0].list.length && (z = [], z.push(D())), z.forEach(function (r) {
-            console.log('123456', r);
             var s = r.img.split("/");
             s = s[s.length - 1], s = s.split(".")[0], s = s.split("_"), r.list.forEach(function (a) {
                 var l = r.img;
