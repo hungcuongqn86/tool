@@ -113,7 +113,11 @@ const niniex = (e, t, n) => {
             if(t.length === 0){
                 t = $('div[class*="ShopHeader--title--"]');
             }
-
+			
+            if(t.length === 0){
+                t = $('span[class*="ShopHeader--shopName"]');
+            }
+			
             "undefined" != typeof t && (e = $(t).attr("title")), "undefined" != typeof e && e.length || (e = $(t).text(), e = b(e))
         }
         return e
@@ -472,9 +476,6 @@ const niniex = (e, t, n) => {
         "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"),
         "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = E());
 
-        /*var sizeobj = $('div.skuWrapper div.skuCate span:contains("颜色")').next().find(".current span.skuValueName").text();
-        console.log("cuonnh00000", sizeobj);*/
-
         var i = $(W[oe].crawle.image).attr("src"),
             o = $(W[oe].crawle.size).next().find(".current span.skuValueName").text(),
             r = $(W[oe].crawle.color).next().find(".current span.skuValueName").text(),
@@ -518,6 +519,11 @@ const niniex = (e, t, n) => {
         var g = "";
         "taobao" == oe ? g = v(o, r) : "tmall" == oe && (g = l("skuId"));
 
+        var amountElm = $(W[oe].crawle.amount);
+		if (!amountElm.length){
+				amountElm = $('input[class*="Operation--countValue--"]');
+		}
+
         var b = {
             rate: ie.rate,
             name: n,
@@ -530,7 +536,7 @@ const niniex = (e, t, n) => {
             color: r,
             colortxt: h,
             pro_properties: g,
-            amount: parseInt($(W[oe].crawle.amount).val()),
+            amount: parseInt(amountElm.val()),
             beginAmount: 1,
             shop_nick: e,
             shop_link: c(t),
@@ -541,7 +547,7 @@ const niniex = (e, t, n) => {
             method: "Chrome Extension"
         };
 
-        console.log("cuonnh11111", b);
+        console.log("cuonnh22222", b);
 
         I("add", b)
     }
@@ -632,6 +638,7 @@ const niniex = (e, t, n) => {
             }
             var n = tk.tbex_thqc_token[0];
             var e = "", t = "";
+			
             "1688" === oe && (e = x(), t = C()), "taobao" === oe && (e = getTaobaoShopName(), t = getTaobaoShopLink()), "tmall" === oe && (e = getShopName(), t = E()), $.ajax({
                 method: "POST",
                 url: ie.apiShopUrl,
@@ -980,7 +987,7 @@ const niniex = (e, t, n) => {
         }
     }, !1), $(document).ready(function () {
         pe.ready(function () {
-            setTimeout(function () {
+            setTimeout(function () {				
                 if ("taobao" === oe) {
                     $(".sufei-dialog-kissy").remove();
                     $("#J_isku .tb-skin").on("click", "li", function (e) {
@@ -1004,13 +1011,19 @@ const niniex = (e, t, n) => {
                     if (pe.length == 0) {
                         pe = $('div[class*="BasicContent--actions"]');
                     }
+					
+					if (pe.length == 0) {
+                        pe = $('div[class*="PurchasePanel--footWrap"]');
+                    }
 
                     pe.before(ce);
                     pe.before(he);
                     pe.before(ue);
+																								
                     le.render(ae.createElement(de, null), document.getElementById("pro-thqc-note"));
                     le.render(ae.createElement(fe, { message: re }), document.getElementById("cart-thqc-warning"));
                     le.render(ae.createElement(me, { btnname: se }), document.getElementById("cart-thqc-parent"));
+
                     setShop();
                 }
             }, 3000);
