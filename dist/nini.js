@@ -246,6 +246,7 @@ const niniex = (e, t, n) => {
             wsRuleNum: "",
             wsRuleUnit: ""
         };
+
         e.list.push(i);
         var o = $(".mod-detail-gallery .tab-pane .box-img img");
         return "undefined" != typeof o && (o = o.attr("src")), "undefined" != typeof o && o.length && (e.img = o), e
@@ -269,6 +270,9 @@ const niniex = (e, t, n) => {
         }
         if (!s) {
             s = $("div.prop-item div.active div.prop-name").attr("title");
+        }
+        if (!s) {
+            s = $("div.gyp-sku-selector-wrap div.sku-props-list div.item-selected .prop-item-text").text();
         }
 
         "undefined" == typeof s && (s = ""), "undefined" != typeof r && (r = c(r));
@@ -481,11 +485,13 @@ const niniex = (e, t, n) => {
             r = $(W[oe].crawle.color).next().find(".current span.skuValueName").text(),
             s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("pv"),
             a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("pv");
+
         "undefined" == typeof o && (o = $(W[oe].crawle.size).next().find(".tb-selected").data("value")), "undefined" == typeof o && (o = ""), "undefined" == typeof r && (r = $(W[oe].crawle.color).next().find(".tb-selected").data("value")), "undefined" == typeof r && (r = ""), "undefined" == typeof s && (s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("value")), "undefined" == typeof s ? s = "" : (r += s, console.log("color1", r)), "undefined" == typeof a && (a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("value")), "undefined" == typeof a ? a = "" : (r += a, console.log("color2", r));
 
         var u = o,
             h = r + $(W[oe].crawle.more_pro1).next().find(".tb-selected a").text().trim() + $(W[oe].crawle.more_pro2).next().find(".tb-selected a").text().trim(),
             d = $(W[oe].crawle.originPrice).text(), f = $(W[oe].crawle.promoPrice).text();
+
 
         if ((oe === "tmall") || (oe === "taobao")) {
             if (!i) {
@@ -547,8 +553,6 @@ const niniex = (e, t, n) => {
             method: "Chrome Extension"
         };
 
-        console.log("cuonnh22222", b);
-
         I("add", b)
     }
 
@@ -561,6 +565,7 @@ const niniex = (e, t, n) => {
         "undefined" != typeof r && (r = JSON.parse(r)), "object" == typeof r && (o = parseInt(r.beginAmount)), z = N(), 0 == z[0].list.length && (z = [], z.push(D())), z.forEach(function (r) {
             var s = r.img.split("/");
             s = s[s.length - 1], s = s.split(".")[0], s = s.split("_"), r.list.forEach(function (a) {
+
                 var l = r.img;
                 "undefined" != typeof a.image && a.image && (l = a.image), l = c(l);
                 var sizetxt = "";
