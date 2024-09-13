@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5e5a056-b157-4437-9a42-0269a34607a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.3.9.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/nini.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/nini.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dist/nini.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="807" column="13" lean-forward="true" selection-start-line="807" selection-start-column="13" selection-end-line="807" selection-end-column="13" />
+            <state relative-caret-position="332">
+              <caret line="404" column="28" lean-forward="true" selection-start-line="404" selection-start-column="28" selection-end-line="404" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
@@ -61,6 +58,8 @@
       <find>getShopName</find>
       <find>pro-thqc-note</find>
       <find>showInfo</find>
+      <find>J_EmStock</find>
+      <find>J_SpanStock</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,12 +159,12 @@
       <workItem from="1718375018324" duration="3533000" />
       <workItem from="1720811392737" duration="6651000" />
       <workItem from="1724349634094" duration="632000" />
-      <workItem from="1726215499169" duration="2200000" />
+      <workItem from="1726215499169" duration="3635000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24282000" />
+    <option name="totallyTimeSpent" value="25717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -228,8 +227,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/nini.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="807" column="13" lean-forward="true" selection-start-line="807" selection-start-column="13" selection-end-line="807" selection-end-column="13" />
+        <state relative-caret-position="332">
+          <caret line="404" column="28" lean-forward="true" selection-start-line="404" selection-start-column="28" selection-end-line="404" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#dd#0;n#dl#0;n#!!top" expanded="true" />

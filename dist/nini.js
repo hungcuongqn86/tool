@@ -396,14 +396,25 @@ const niniex = (e, t, n) => {
     function T() {
         var t = $(W[oe].crawle.originPrice), n = $(W[oe].crawle.promoPrice);
         if (t.length === 0) {
-            t = $('span[class*="Price--priceText"]');
+            t = $('span[class*="priceText--"]');
             if (t.length > 0) {
                 t = $(t[0]);
+            }
+
+            if (t.length > 1) {
+                t = $(t[1]);
             }
         }
 
         if (n.length === 0) {
-            n = $('span[class*="Price--extraPriceText"]');
+            n = $('span[class*="extraPriceText--"]');
+            if (n.length > 0) {
+                n = $(n[0]);
+            }
+
+            if (n.length > 1) {
+                n = $(n[1]);
+            }
         }
 
         var e, i = t.text(), o = n.text(), r = 0, s = 0, a = 0, l = 0;
