@@ -109,13 +109,12 @@ const niniex = (e, t, n) => {
     function getTaobaoShopName() {
         var e = "";
         if (!e.length) {
-            var t = $(".tb-shop-name a, .shop-name a.shop-name-link");
+            var t = $('span[class*="shopName--"]');
             if(t.length === 0){
                 t = $('div[class*="ShopHeader--title--"]');
             }
-			
             if(t.length === 0){
-                t = $('span[class*="ShopHeader--shopName"]');
+                t = $(".tb-shop-name a, .shop-name a.shop-name-link");
             }
 			
             "undefined" != typeof t && (e = $(t).attr("title")), "undefined" != typeof e && e.length || (e = $(t).text(), e = b(e))
@@ -128,17 +127,16 @@ const niniex = (e, t, n) => {
     }
 
     function getTaobaoShopLink() {
-        var e = "", t = $(".tb-shop-name a, .shop-name a.shop-name-link");
+        var e = "", t = $('a[class*="detailWrap--"]');
         if(t.length === 0){
-            t = $('a[class*="ShopHeader--board--"]');
+            t = $(".tb-shop-name a, .shop-name a.shop-name-link");
         }
         return "undefined" != typeof t && (e = $(t).attr("href")), e = c(e)
     }
 
     function getShopName() {
         var e = "";
-        var t = $(".shopLink, a.slogo-shopname, div.hd-shop-name > a");
-
+        var t = $('span[class*="shopName--"]');
         if ("undefined" != typeof t && (e = $(t).text()), !e.length) {
             t = $('div[class*="ShopHeader--title"]');
         }
@@ -148,14 +146,22 @@ const niniex = (e, t, n) => {
         }
 
         if ("undefined" != typeof t && (e = $(t).text()), !e.length) {
+            t = $(".shopLink, a.slogo-shopname, div.hd-shop-name > a");
+        }
+
+        if ("undefined" != typeof t && (e = $(t).text()), !e.length) {
             var n = JSON.parse(u("tmp_g_config"));
             "object" == typeof n && null !== n && "undefined" != typeof n.sellerNickName && (e = decodeURIComponent(n.sellerNickName))
         }
         return e
     }
 
-    function E() {
-        var e = "", t = $(".shopLink");
+    function getShopLink() {
+        var e = "";
+        var t = $('a[class*="detailWrap--"]');
+        if (!t.length) {
+            t = $(".shopLink");
+        }
         return "undefined" != typeof t && t.length || (t = $("a.slogo-shopname")), "undefined" != typeof t && t.length && (e = $(t).attr("href")), e = c(e)
     }
 
@@ -252,7 +258,7 @@ const niniex = (e, t, n) => {
         return "undefined" != typeof o && (o = o.attr("src")), "undefined" != typeof o && o.length && (e.img = o), e
     }
 
-    function N() {
+    function Get1688Attribute() {
         var e, t, n, i = [], o = [];
         var r = $(".detail-gallery-preview img").attr("src");
 
@@ -472,19 +478,19 @@ const niniex = (e, t, n) => {
     }
 
     function R() {
-        return d(), "1688" == oe ? A() : !!P() && S()
+        return d(), "1688" === oe ? A() : !!P() && getTaoBaoAtribute()
     }
 
-    function S() {
+    function getTaoBaoAtribute() {
         var e = "", t = "", n = "";
         "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"),
-        "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = E());
+        "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = getShopLink());
 
-        var i = $(W[oe].crawle.image).attr("src"),
-            o = $(W[oe].crawle.size).next().find(".current span.skuValueName").text(),
-            r = $(W[oe].crawle.color).next().find(".current span.skuValueName").text(),
-            s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("pv"),
-            a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("pv");
+        var i = $(W[oe].crawle.image).attr("src");
+        var o = $(W[oe].crawle.size).parent().next().find('div[class*="SkuContent--isSelected--"]').find('span[class*="SkuContent--valueItemText--"]').text();
+        var r = $(W[oe].crawle.color).parent().next().find('div[class*="SkuContent--isSelected--"]').find('span[class*="SkuContent--valueItemText--"]').text();
+        var s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("pv");
+        var a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("pv");
 
         "undefined" == typeof o && (o = $(W[oe].crawle.size).next().find(".tb-selected").data("value")), "undefined" == typeof o && (o = ""), "undefined" == typeof r && (r = $(W[oe].crawle.color).next().find(".tb-selected").data("value")), "undefined" == typeof r && (r = ""), "undefined" == typeof s && (s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("value")), "undefined" == typeof s ? s = "" : (r += s, console.log("color1", r)), "undefined" == typeof a && (a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("value")), "undefined" == typeof a ? a = "" : (r += a, console.log("color2", r));
 
@@ -562,7 +568,7 @@ const niniex = (e, t, n) => {
         i = $(".mod-detail-gallery img").attr("alt"), t = x(), n = C();
 
         var o = 1, r = $(".unit-detail-freight-cost").attr("data-unit-config");
-        "undefined" != typeof r && (r = JSON.parse(r)), "object" == typeof r && (o = parseInt(r.beginAmount)), z = N(), 0 == z[0].list.length && (z = [], z.push(D())), z.forEach(function (r) {
+        "undefined" != typeof r && (r = JSON.parse(r)), "object" == typeof r && (o = parseInt(r.beginAmount)), z = Get1688Attribute(), 0 == z[0].list.length && (z = [], z.push(D())), z.forEach(function (r) {
             var s = r.img.split("/");
             s = s[s.length - 1], s = s.split(".")[0], s = s.split("_"), r.list.forEach(function (a) {
 
@@ -644,7 +650,7 @@ const niniex = (e, t, n) => {
             var n = tk.tbex_thqc_token[0];
             var e = "", t = "";
 			
-            "1688" === oe && (e = x(), t = C()), "taobao" === oe && (e = getTaobaoShopName(), t = getTaobaoShopLink()), "tmall" === oe && (e = getShopName(), t = E()), $.ajax({
+            "1688" === oe && (e = x(), t = C()), "taobao" === oe && (e = getTaobaoShopName(), t = getTaobaoShopLink()), "tmall" === oe && (e = getShopName(), t = getShopLink()), $.ajax({
                 method: "POST",
                 url: ie.apiShopUrl,
                 dataType: 'json',
@@ -820,16 +826,11 @@ const niniex = (e, t, n) => {
             '<div class="tbe-info-warning"><p>(!!) Vui lòng chọn đầy đủ thông tin sản phẩm ở bên dưới để xem giá chuẩn.</p><p>(!!) không dùng Google Translate khi thêm sản phẩm.</p></div>',
             "</div>"].join("");
         var titleElm = $("#J_Title, .tb-detail-hd, #mod-detail-price, .od-pc-offer-title-contain");
-        if (titleElm.length == 0) {
-            titleElm = $('div[class*="ItemHeader--root"]');
+        if (titleElm.length === 0) {
+            titleElm = $('div[class*="ItemTitle--"]');
         }
-
+        console.log("cuongnh11111kokok", titleElm);
         titleElm.append(r);
-        // console.log("cuongnh1212");
-        // $(".obj-order").hide();
-        // $(".order-button-wrapper").hide();
-        // $(".tb-action").hide();
-        // $("#J_juValid").hide();
     }
 
     function H(e) {
@@ -862,8 +863,8 @@ const niniex = (e, t, n) => {
                     shop_nick: ".tb-shop-name a",
                     shop_link: ".tb-shop-name a",
                     amount: "#J_IptAmount, input.countValueForPC",
-                    size: 'div.skuWrapper div.skuCate span:contains("尺码")',
-                    color: 'div.skuWrapper div.skuCate span:contains("颜色")',
+                    size: 'div[class*="ItemLabel--label--"] span:contains("尺寸")',
+                    color: 'div[class*="ItemLabel--label--"] span:contains("颜色")',
                     more_pro1: 'dt:contains("清晰度")',
                     more_pro2: 'dt:contains("焦距")',
                     lowPrice: 'span[itemprop="lowPrice"]',
@@ -886,8 +887,8 @@ const niniex = (e, t, n) => {
                     shop_nick: ".shopLink",
                     shop_link: ".shopLink",
                     amount: "#J_Amount input, input.countValueForPC",
-                    size: 'div.skuWrapper div.skuCate span:contains("尺码")',
-                    color: 'div.skuWrapper div.skuCate span:contains("颜色")',
+                    size: 'div[class*="ItemLabel--label--"] span:contains("尺寸")',
+                    color: 'div[class*="ItemLabel--label--"] span:contains("颜色")',
                     more_pro1: 'dt:contains("清晰度")',
                     more_pro2: 'dt:contains("焦距")',
                     lowPrice: "#J_PromoPrice .tm-price",
@@ -1018,8 +1019,10 @@ const niniex = (e, t, n) => {
                     }
 					
 					if (pe.length == 0) {
-                        pe = $('div[class*="PurchasePanel--footWrap"]');
+                        pe = $('div[class*="footWrap--"]');
                     }
+
+					// console.log("cuongnh11111", pe);
 
                     pe.before(ce);
                     pe.before(he);
