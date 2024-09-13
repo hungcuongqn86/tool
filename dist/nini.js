@@ -497,12 +497,17 @@ const niniex = (e, t, n) => {
         "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"),
         "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = getShopLink());
 
-        var i = $(W[oe].crawle.image).attr("src");
-        var o = $(W[oe].crawle.size).parent().next().find('div[class*="SkuContent--isSelected--"]').find('span[class*="SkuContent--valueItemText--"]').text();
-        var r = $(W[oe].crawle.color).parent().next().find('div[class*="SkuContent--isSelected--"]').find('span[class*="SkuContent--valueItemText--"]').text();
+        var i = "";
+        var tqwe = $('img[class*="valueItemImg--"]');
+        if (tqwe.length > 0) {
+            tqwe = $(tqwe[0]);
+            i = tqwe.attr("src");
+        }
+
+        var o = $(W[oe].crawle.size).parent().next().find('div[class*="isSelected--"]').find('span[class*="valueItemText--"]').text();
+        var r = $(W[oe].crawle.color).parent().next().find('div[class*="isSelected--"]').find('span[class*="valueItemText--"]').text();
         var s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("pv");
         var a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("pv");
-
         "undefined" == typeof o && (o = $(W[oe].crawle.size).next().find(".tb-selected").data("value")), "undefined" == typeof o && (o = ""), "undefined" == typeof r && (r = $(W[oe].crawle.color).next().find(".tb-selected").data("value")), "undefined" == typeof r && (r = ""), "undefined" == typeof s && (s = $(W[oe].crawle.more_pro1).next().find(".tb-selected").data("value")), "undefined" == typeof s ? s = "" : (r += s, console.log("color1", r)), "undefined" == typeof a && (a = $(W[oe].crawle.more_pro2).next().find(".tb-selected").data("value")), "undefined" == typeof a ? a = "" : (r += a, console.log("color2", r));
 
         var u = o,
@@ -511,40 +516,45 @@ const niniex = (e, t, n) => {
 
 
         if ((oe === "tmall") || (oe === "taobao")) {
-            if (!i) {
-                var tqwe = $('img[class*="PicGallery--mainPic"]');
-                if (tqwe.length > 0) {
-                    tqwe = $(tqwe[0]);
-                    i = tqwe.attr("src");
-                }
-            }
-
             if (!d) {
-                var tqwe1 = $('span[class*="Price--priceText"]');
+                var tqwe1 = $('span[class*="priceText--"]');
                 if (tqwe1.length > 0) {
                     tqwe1 = $(tqwe1[0]);
-                    d = tqwe1.text();
                 }
+
+                if (tqwe1.length > 1) {
+                    tqwe1 = $(tqwe1[1]);
+                }
+
+                d = tqwe1.text();
             }
 
             if (!f) {
-                var nadsa = $('span[class*="Price--extraPriceText"]');
+                var nadsa = $('span[class*="extraPriceText--"]');
                 if (nadsa.length > 0) {
                     nadsa = $(nadsa[0]);
-                    f = nadsa.text();
                 }
+
+                if (nadsa.length > 1) {
+                    nadsa = $(nadsa[1]);
+                }
+
+                f = nadsa.text();
             }
         }
 
-        d = p(d), f = p(f);
+        d = p(d);
+        f = p(f);
+
         var m = d;
         f && !isNaN(f) && (m = f);
+
         var g = "";
-        "taobao" == oe ? g = v(o, r) : "tmall" == oe && (g = l("skuId"));
+        "taobao" === oe ? g = v(o, r) : "tmall" === oe && (g = l("skuId"));
 
         var amountElm = $(W[oe].crawle.amount);
 		if (!amountElm.length){
-				amountElm = $('input[class*="Operation--countValue--"]');
+				amountElm = $('input[class*="countValue--"]');
 		}
 
         var b = {
@@ -870,12 +880,12 @@ const niniex = (e, t, n) => {
                 crawle: {
                     originPrice: "#J_priceStd .tb-rmb-num, #J_StrPrice .tb-rmb-num",
                     promoPrice: "#J_PromoPrice .tb-rmb-num, #J_PromoPriceNum",
-                    image: "#J_ThumbView, #J_ImgBooth, div.current img.skuIcon",
+                    image: "img.valueItemImg--",
                     shop_nick: ".tb-shop-name a",
                     shop_link: ".tb-shop-name a",
                     amount: "#J_IptAmount, input.countValueForPC",
-                    size: 'div[class*="ItemLabel--label--"] span:contains("尺寸")',
-                    color: 'div[class*="ItemLabel--label--"] span:contains("颜色")',
+                    size: 'div[class*="ItemLabel--"] span:contains("尺码")',
+                    color: 'div[class*="ItemLabel--"] span:contains("颜色")',
                     more_pro1: 'dt:contains("清晰度")',
                     more_pro2: 'dt:contains("焦距")',
                     lowPrice: 'span[itemprop="lowPrice"]',
@@ -894,12 +904,12 @@ const niniex = (e, t, n) => {
                 crawle: {
                     originPrice: "#J_DetailMeta > div.tm-clear > div.tb-property > div > div.tm-fcs-panel > dl.tm-tagPrice-panel > dd > span, #J_StrPriceModBox > dd > span",
                     promoPrice: "#J_PromoPrice > dd > div > span.tm-price, #J_PromoBox > div > span",
-                    image: "#J_ThumbView, #J_ImgBooth",
+                    image: "img.valueItemImg--",
                     shop_nick: ".shopLink",
                     shop_link: ".shopLink",
                     amount: "#J_Amount input, input.countValueForPC",
-                    size: 'div[class*="ItemLabel--label--"] span:contains("尺寸")',
-                    color: 'div[class*="ItemLabel--label--"] span:contains("颜色")',
+                    size: 'div[class*="ItemLabel--"] span:contains("尺码")',
+                    color: 'div[class*="ItemLabel--"] span:contains("颜色")',
                     more_pro1: 'dt:contains("清晰度")',
                     more_pro2: 'dt:contains("焦距")',
                     lowPrice: "#J_PromoPrice .tm-price",
