@@ -397,6 +397,10 @@ const niniex = (e, t, n) => {
         var t = $(W[oe].crawle.originPrice), n = $(W[oe].crawle.promoPrice);
         if (t.length === 0) {
             t = $('span[class*="priceText--"]');
+			if(t.length === 0){
+				t = $('div[class*="highlightPrice--"] span[class*="text--"]');
+			}
+				
             if (t.length > 0) {
                 t = $(t[0]);
             }
@@ -518,6 +522,10 @@ const niniex = (e, t, n) => {
         if ((oe === "tmall") || (oe === "taobao")) {
             if (!d) {
                 var tqwe1 = $('span[class*="priceText--"]');
+                if(tqwe1.length === 0){
+                    tqwe1 = $('div[class*="highlightPrice--"] span[class*="text--"]');
+                }
+
                 if (tqwe1.length > 0) {
                     tqwe1 = $(tqwe1[0]);
                 }
@@ -1031,15 +1039,15 @@ const niniex = (e, t, n) => {
                     $(W[oe].translate.size).text("Kích thước"), $(W[oe].translate.color).text("Màu sắc"), $(W[oe].translate.amount).text("Số lượng");
                     $(W[oe].translate.unit).text("sản phẩm");
 
-                    if (pe.length == 0) {
-                        pe = $("#J_box_buycart, #J_juValid, .tb-action, .obj-order, .order-button-children, .order-button-wrapper, .od-pc-offer-payment-contain");
+                    if (pe.length === 0) {
+                        pe = $("#tbpcDetail_SkuPanelFoot");
                     }
 
-                    if (pe.length == 0) {
+                    if (pe.length === 0) {
                         pe = $('div[class*="BasicContent--actions"]');
                     }
 					
-					if (pe.length == 0) {
+					if (pe.length === 0) {
                         pe = $('div[class*="footWrap--"]');
                     }
 
@@ -1048,7 +1056,7 @@ const niniex = (e, t, n) => {
                     pe.before(ce);
                     pe.before(he);
                     pe.before(ue);
-																								
+
                     le.render(ae.createElement(de, null), document.getElementById("pro-thqc-note"));
                     le.render(ae.createElement(fe, { message: re }), document.getElementById("cart-thqc-warning"));
                     le.render(ae.createElement(me, { btnname: se }), document.getElementById("cart-thqc-parent"));
