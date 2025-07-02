@@ -381,6 +381,10 @@ const niniex = (e, t, n) => {
         if ("object" == typeof e && 0 == e.length) {
             e = parseFloat($("#mod-detail-price").find("span.num").text());
         }
+		
+		if ("object" == typeof e && 0 == e.length) {
+            e = parseFloat($(".price-info.currency").text().replace(/[^0-9\.]/g, ''));
+        }
 
         if (isNaN(e) && "object" != typeof e) {
             e = $(".table-sku").find("tr:first").find("td.price").find("em.value").text();
