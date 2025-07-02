@@ -404,6 +404,10 @@ sub {
     text-align: center;
 }
 
+.tbe-info-warning p{
+	margin: 0;
+}
+
 a.disabled {
     pointer-events: none;
     cursor: default
