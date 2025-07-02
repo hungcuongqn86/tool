@@ -1038,6 +1038,8 @@ const niniex = (e, t, n) => {
                     $(W[oe].translate.promoPrice).text("Giá bán");
                     $(W[oe].translate.size).text("Kích thước"), $(W[oe].translate.color).text("Màu sắc"), $(W[oe].translate.amount).text("Số lượng");
                     $(W[oe].translate.unit).text("sản phẩm");
+					
+					pe = $("#J_box_buycart, #J_juValid, .tb-action, .obj-order, .order-button-children, .order-button-wrapper, .od-pc-offer-payment-contain");
 
                     if (pe.length === 0) {
                         pe = $("#tbpcDetail_SkuPanelFoot");
