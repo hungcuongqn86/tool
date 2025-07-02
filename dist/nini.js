@@ -872,7 +872,6 @@ const niniex = (e, t, n) => {
 
         var r = [
             '<div id="tbe-info-shop">',
-            '<h5>quangchau247online.com</h5>',
             '<img style="width:70px;" src="' + chrome.runtime.getURL("images/144x144.png") + '" alt="' + te + '" />',
             "<ul>", '<li id="nini_price">Giá bán: <b class="tbe-color-price">' + i + "</b> đ</li>",
             '<li>Tỷ giá: <span class="tbe-rate tbe-color-price">' + ie.rate.format() + "</span> đ/tệ</li>",
@@ -980,7 +979,7 @@ const niniex = (e, t, n) => {
             apiShopUrl: Z,
             apiAddCart: ee,
             urlGetRate: J + "/san-pham/lay-ty-gia",
-            cartUrl: J + "/../../cart",
+            cartUrl: J + "/admin/cart",
             helpUrl: J + "/danh-muc-bai-viet/chi-tiet-20-huong-dan-tao-don-hang-tren-he-thong",
             reportUrl: J + "/bao-cao/gio-hang",
             logoUrl: J + "/images/extention_logo.png",
@@ -999,7 +998,7 @@ const niniex = (e, t, n) => {
                     className: "thqcNote",
                     name: "pro-thqc-note",
                     placeholder: "Ghi chú sản phẩm",
-                    rows: "4",
+                    rows: "3",
                     cols: "50"
                 })
             }

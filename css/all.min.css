@@ -316,12 +316,18 @@ sub {
 }
 
 #pro-thqc-note {
-    margin-top: 15px
+    margin-top: 15px;
+}
+
+.thqcNote {
+    width: 100%;
+	border: 1px solid #ccc;
+	padding: 3px;
 }
 
 #cart-thqc-parent {
     text-align: left;
-    padding: 10px 0
+    padding: 5px 0
 }
 
 .clearfix {
@@ -334,7 +340,6 @@ sub {
 
 .btn-thqc-add {
     height: 30px;
-    line-height: 30px;
     cursor: pointer;
     text-align: center;
     display: inline-block;
@@ -367,7 +372,7 @@ sub {
 }
 
 #tbe-info-shop, #thqc-info-shop {
-    padding: 15px 0;
+    padding: 5px;
     border: 3px solid #26ab34;
     clear: both
 }
@@ -388,7 +393,6 @@ sub {
 #thqc-info-shop .thqc-info-warning {
     clear: both;
     text-align: center;
-    font-weight: 700
 }
 
 #tbe-info-shop .bg-info {
@@ -398,7 +402,6 @@ sub {
 #tbe-info-shop .tbe-info-warning {
     clear: both;
     text-align: center;
-    font-weight: 700
 }
 
 a.disabled {
