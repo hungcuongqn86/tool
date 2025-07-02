@@ -478,6 +478,15 @@ const niniex = (e, t, n) => {
                 }
             });
         }
+		
+		if (("undefined" == typeof t) || t == 0) {
+            t = 0;
+            $('.ant-input-number-input-wrap>input').each(function () {
+                if ($(this).val() != "") {
+                    t = t + parseInt($(this).val());
+                }
+            });
+        }
 
         var i = "";
         if (i = $(".unit-detail-freight-cost").attr("data-unit-config"), "undefined" != typeof i && (i = JSON.parse(i)), "object" == typeof i && (n = parseInt(i.beginAmount)), t < n) return g("Thông báo", "Shop yêu cầu mua tối thiểu " + n + " sản phẩm.", "warning"), m(), !1;
@@ -497,6 +506,8 @@ const niniex = (e, t, n) => {
     }
 
     function getTaoBaoAtribute() {
+		console.log("Nini getTaoBaoAtribute 0");
+		
         var e = "", t = "", n = "";
         "taobao" === oe ? (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"),
         "undefined" == typeof n && (n = $("#J_Title .tb-main-title").data("title")), e = getTaobaoShopName(), t = getTaobaoShopLink()) : "tmall" === oe && (n = $("#J_ThumbView, #J_ImgBooth").attr("alt"), e = getShopName(), t = getShopLink());
@@ -854,11 +865,11 @@ const niniex = (e, t, n) => {
             '<div id="tbe-select-info"></div>',
             '<div class="tbe-info-warning"><p>(!!) Vui lòng chọn đầy đủ thông tin sản phẩm ở bên dưới để xem giá chuẩn.</p><p>(!!) không dùng Google Translate khi thêm sản phẩm.</p></div>',
             "</div>"].join("");
-        var titleElm = $("#J_Title, .tb-detail-hd, #mod-detail-price, .od-pc-offer-title-contain");
+        var titleElm = $("#J_Title, .tb-detail-hd, #mod-detail-price, #productTitle, .od-pc-offer-title-contain");
         if (titleElm.length === 0) {
             titleElm = $('div[class*="ItemTitle--"]');
         }
-        console.log("cuongnh11111kokok", titleElm);
+
         titleElm.append(r);
     }
 
@@ -1052,8 +1063,6 @@ const niniex = (e, t, n) => {
 					if (pe.length === 0) {
                         pe = $('div[class*="footWrap--"]');
                     }
-
-					// console.log("cuongnh11111", pe);
 
                     pe.before(ce);
                     pe.before(he);
