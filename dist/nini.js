@@ -351,8 +351,8 @@ const niniex = (e, t, n) => {
                     n = $(l).find('input').val();
                     n = parseInt(n);
                     if ("undefined" != typeof n && n > 0) {
-                        e = $(l).find(price_class).text().replace(/[^0-9\.]/g, '');
-                        t = $(l).find(size_class).text();
+                        e = $(l).find(price_class).eq(0).text().replace(/[^0-9\.]/g, '');
+                        t = $(l).find(size_class).eq(0).text();
                         a.qty = n;
                         a.price = parseFloat(e);
                         a.color = s;
