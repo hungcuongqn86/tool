@@ -263,6 +263,10 @@ const niniex = (e, t, n) => {
         var r = $(".detail-gallery-preview img").attr("src");
 
         if (!r) {
+            r = $(".od-gallery-turn-item-wrapper.prepic-active img.od-gallery-img").attr("src");
+        }
+
+        if (!r) {
             r = $(".detail-gallery-turn-wrapper.prepic-active img.detail-gallery-img").attr("src");
         }
 
@@ -271,12 +275,18 @@ const niniex = (e, t, n) => {
         }
 
         var s = $("ul.list-leading div.active a.selected img").attr("alt");
+		if (!s) {
+            s = $("button.sku-filter-button.active .label-name").text();
+        }
+		
         if (!s) {
             s = $(".list-leading .active .selected").attr("title");
         }
+		
         if (!s) {
             s = $("div.prop-item div.active div.prop-name").attr("title");
         }
+		
         if (!s) {
             s = $("div.gyp-sku-selector-wrap div.sku-props-list div.item-selected .prop-item-text").text();
         }
@@ -312,6 +322,12 @@ const niniex = (e, t, n) => {
                 price_class = ".next-table-cell .next-table-cell-wrapper .price";
                 size_class = ".next-table-cell .next-table-cell-wrapper .specification-cell span";
             }
+			
+			if (!u.length){
+                u = $(".expand-view-list .expand-view-item");
+                price_class = "span.item-price-stock";
+                size_class = "span.item-label";
+            }
 
             if (u.length) {
                 for (var h = 0; h < u.length; h++) {
@@ -332,7 +348,7 @@ const niniex = (e, t, n) => {
                         wsRuleUnit: ""
                     };
 
-                    n = $(l).find('.next-input-group-auto-width>input').val();
+                    n = $(l).find('input').val();
                     n = parseInt(n);
                     if ("undefined" != typeof n && n > 0) {
                         e = $(l).find(price_class).text().replace(/[^0-9\.]/g, '');
