@@ -462,7 +462,7 @@ const niniex = (e, t, n) => {
             }
             var o = {};
             o[B] = U, r(o, function () {
-                L(), a(), console.log("[thqc] Products saved!")
+                AddToCart(), a(), console.log("[thqc] Products saved!")
             })
         })
     }
@@ -672,7 +672,7 @@ const niniex = (e, t, n) => {
         return e = e.toLowerCase(), e == Q
     }
 
-    function L() {
+    function AddToCart() {
         o(q, function (e) {
             if (typeof e.tbex_thqc_token === 'undefined' || e.tbex_thqc_token === null) {
                 alert('Phiên làm việc hết hạn! Bạn cần đăng nhập quangchau247online.com trước khi đặt hàng!');
@@ -963,7 +963,7 @@ const niniex = (e, t, n) => {
                 crawle: {
                     originPrice: ".tm-price-panel .tm-price",
                     promoPrice: ".tm-promo-panel .tm-price",
-                    image: ".mod-detail-gallery img, .detail-gallery-preview img",
+                    image: ".mod-detail-gallery img, .detail-gallery-preview img, .od-gallery-turn-item-wrapper.prepic-active img",
                     shop_nick: "#usermidid",
                     shop_link: ".currentdomain, .enname",
                     amount: "#J_Amount input",
