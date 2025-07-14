@@ -383,7 +383,7 @@ const niniex = (e, t, n) => {
         }
 		
 		if (isNaN(e) && "object" != typeof e) {
-            e = parseFloat($(".price-comp .currency")eq(0).text().replace(/[^0-9\.]/g, ''));
+            e = parseFloat($(".price-comp .currency").eq(0).text().replace(/[^0-9\.]/g, ''));
         }
 
         if (isNaN(e) && "object" != typeof e) {
@@ -876,7 +876,7 @@ const niniex = (e, t, n) => {
 
         var r = [
             '<div id="tbe-info-shop">',
-            '<img style="width:70px;" src="' + chrome.runtime.getURL("images/144x144.png") + '" alt="' + te + '" />',
+            '<img style="width:54px;" src="' + chrome.runtime.getURL("images/144x144.png") + '" alt="' + te + '" />',
             "<ul>", '<li id="nini_price">Giá bán: <b class="tbe-color-price">' + i + "</b> đ</li>",
             '<li>Tỷ giá: <span class="tbe-rate tbe-color-price">' + ie.rate.format() + "</span> đ/tệ</li>",
             "</ul>",
@@ -1002,7 +1002,7 @@ const niniex = (e, t, n) => {
                     className: "thqcNote",
                     name: "pro-thqc-note",
                     placeholder: "Ghi chú sản phẩm",
-                    rows: "3",
+                    rows: "2",
                     cols: "50"
                 })
             }
