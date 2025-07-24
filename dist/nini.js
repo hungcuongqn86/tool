@@ -165,7 +165,7 @@ const niniex = (e, t, n) => {
         return "undefined" != typeof t && t.length || (t = $("a.slogo-shopname")), "undefined" != typeof t && t.length && (e = $(t).attr("href")), e = c(e)
     }
 
-    function x() {
+    function get1688ShopName() {
         var e = "",
             t = $(".app-common_supplierInfoSmall, .app-import_supplierInfoSmall, .app-smt_supplierInfoSmall, .app-offerdetail_topbar, .app-yuan_supplierInfoSmall");
         if ("undefined" != typeof t && t.length && (t = t.attr("data-view-config"), t.length && (t = JSON.parse(t)), "object" == typeof t && "undefined" != typeof t.loginId && (e = t.loginId)), "undefined" !== e && 0 === e.length && $("meta[property='og:product:nick']").length && (e = $("meta[property='og:product:nick']").attr("content"), e.length)) {
@@ -190,7 +190,18 @@ const niniex = (e, t, n) => {
                 }
             }
         }
+		
+		if(e == ""){
+			var shopNavigation = document.getElementById('shopNavigation');
+			if (shopNavigation) {
+                var h1Array = shopNavigation.getElementsByTagName('h1');
+                if (h1Array.length > 0) {
+                    e = h1Array[0].innerHTML;
+                }
+            }
+		}
 
+		console.log("nini", e);
         if (e == "") {
             e = "Không xác định";
         }
@@ -225,6 +236,16 @@ const niniex = (e, t, n) => {
                 e = domain.hostname;
             }
         }
+		
+		if(e == ""){
+			var shopNavigation = document.getElementById('shopNavigation');
+			if (shopNavigation) {
+                var aArray = shopNavigation.getElementsByTagName('a');
+                if (aArray.length > 0) {
+                    e = aArray[0].href;
+                }
+            }
+		}
 
         if (e == "") {
             e = "detail.1688.com";
@@ -625,7 +646,7 @@ const niniex = (e, t, n) => {
     function A() {
         if (!M()) return !1;
         var e = [], t = "", n = "", i = "";
-        i = $(".mod-detail-gallery img").attr("alt"), t = x(), n = C();
+        i = $(".mod-detail-gallery img").attr("alt"), t = get1688ShopName(), n = C();
 
         var o = 1, r = $(".unit-detail-freight-cost").attr("data-unit-config");
         "undefined" != typeof r && (r = JSON.parse(r)), "object" == typeof r && (o = parseInt(r.beginAmount)), z = Get1688Attribute(), 0 == z[0].list.length && (z = [], z.push(D())), z.forEach(function (r) {
@@ -710,7 +731,7 @@ const niniex = (e, t, n) => {
             var n = tk.tbex_thqc_token[0];
             var e = "", t = "";
 			
-            "1688" === oe && (e = x(), t = C()), "taobao" === oe && (e = getTaobaoShopName(), t = getTaobaoShopLink()), "tmall" === oe && (e = getShopName(), t = getShopLink()), $.ajax({
+            "1688" === oe && (e = get1688ShopName(), t = C()), "taobao" === oe && (e = getTaobaoShopName(), t = getTaobaoShopLink()), "tmall" === oe && (e = getShopName(), t = getShopLink()), $.ajax({
                 method: "POST",
                 url: ie.apiShopUrl,
                 dataType: 'json',
